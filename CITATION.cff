@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "To be defined"
+authors:
+  - family-names: Corona
+    given-names: Julio
+  - family-names: Teixeira
+    given-names: Rafael
+  - family-names: Antunes
+    given-names: Mário
+  - family-names: Aguiar
+    given-names: Rui L.
+version: "1.0" # Adjust the version accordingly
+doi: "To be defined" # Adjust the DOI accordingly
+date-released: "To be defined" # Adjust the release date if needed
+license: Apache-2.0 # Adjust the license if needed
+url: "To be defined" # Add your repository URL
