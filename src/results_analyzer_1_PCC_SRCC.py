@@ -44,8 +44,8 @@ def plot_mcc_and_create_dataframe_with_the_correlations():
                         df.at[df_filtered.index[2], 'XAI PCC'] = pd.Series(shap_values).corr(pd.Series(lime_values))
                         df.at[df_filtered.index[2], 'XAI SRCC'] = pd.Series(shap_values).corr(pd.Series(lime_values), method='spearman')
 
-    # dropping columns that are not necessary: XAI, Train F Relevance, Test F Relevance
-    df.drop(columns=['XAI', 'Train F Relevance', 'Test F Relevance'], inplace=True)
+    # dropping columns that are not necessary: XAI, Test F Relevance
+    df.drop(columns=['XAI', 'Test F Relevance'], inplace=True)
     df.to_csv('results/correlation_results.csv', index=False)
 
 
@@ -96,9 +96,11 @@ def load_dataframe_with_the_correlations_and_plot():
             # ax.set_title(correlation_type)
             ax.set_xlabel('XAI Pair')
             ax.set_ylabel(f"{correlation_type} Correlation")
+            # set y top limit to 1.2
+            ax.set_ylim([0, 1.2])
         plt.savefig(f'plots/2_correlations_{performance}.png', bbox_inches='tight')
 
-# load_dataframe_with_the_correlations_and_plot()
+load_dataframe_with_the_correlations_and_plot()
 
 def load_dataframe_with_the_correlations_and_plot_data_impact():
     df = pd.read_csv('results/correlation_results.csv')
@@ -150,7 +152,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
 
         plt.savefig(f'plots/3_correlations_{output_feature}.png', bbox_inches='tight')
 
-load_dataframe_with_the_correlations_and_plot_data_impact()
+# load_dataframe_with_the_correlations_and_plot_data_impact()
 
 
 

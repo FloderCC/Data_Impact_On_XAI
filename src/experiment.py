@@ -93,6 +93,10 @@ results = []
 explanation_number = 1
 explanations_quantity = len(dataset_setup_list) * len(xai_algorithms) * len(seeds) * len(dataset_percentage_sizes) * 14
 
+print(explanations_quantity)
+
+exit(2)
+
 for seed in seeds:
     print(f"Seed: {seed}")
     # /// Setup begin \\\
