@@ -141,7 +141,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
                 corr_dataframe = corr_dataframe._append({'Input Feature': input_feature, 'SRCC': correlation_spearman_value, 'XAI Pair': xai_pair}, ignore_index=True)
 
         sns.set_theme(style="whitegrid")
-        plt.figure(figsize=(4, 6))
+        plt.figure(figsize=(4, 3.6))
 
         correlation_type = 'SRCC'
         legend = True
@@ -159,7 +159,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
             y_value = boundary + 0.5  # Adjust to fit your plot's y-axis scale
             ax.axhline(y=y_value, color='gray', linestyle='dashed', linewidth=0.5)
 
-        ax.set_xlim([-0.7, 0.7])
+        ax.set_xlim([-0.5, 0.7])
 
         fontsize = 9
 
@@ -172,7 +172,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
         # Add legend
         if legend:
             # ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1)).set_zorder(100)
-            ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3)
+            ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.5, -0.14), ncol=3)
 
 
         plt.savefig(f'plots/png/3_correlations_{performance}_meta.png', bbox_inches='tight')

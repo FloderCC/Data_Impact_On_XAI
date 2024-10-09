@@ -1,8 +1,6 @@
 # Data Impact On XAI
 
-[![DOI](To be defined)
-
-### Repository of the work entitled To be defined
+### Repository of the work entitled "Understanding the Influence of Data Characteristics on Explainable AI"
 
 ## Structure
 
@@ -50,3 +48,5 @@ This repository has the following structure:
 | Bagging          | n_estimators: {10, 50, 100}<br>max_samples: {1.0}                                                                                                                                                                                            |
 | MLP              | hidden_layer_sizes: {(50,), (100,)}<br>activation: {logistic, relu}<br>alpha: {0.0001, 0.001, 0.01}                                                                                                                                          |
 | DNN              | hidden_layers_size: {16, 16, 16; 8, 16, 8; 32, 16, 8}<br>activation_function: {sigmoid, tanh, relu, silu}<br>loss_function: {categorical_crossentropy}<br>nn_optimizer: {Adam, RMSprop, Nadam}<br>epochs: {100, 500}<br>batch_size: {10, 50} |
+
+[Summary of Best Hyperparameter Settings](src/results/best_hyperparameters.md)
