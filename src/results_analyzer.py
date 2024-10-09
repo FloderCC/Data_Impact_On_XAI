@@ -56,27 +56,35 @@ def plot_mcc_and_create_dataframe_with_the_correlations():
     sns.set_theme(style="whitegrid")
     # note: sample size and seed are the errors
 
-    plt.figure(figsize=(6, 3.7))
+    plt.figure(figsize=(5.8, 3.7))
     # setting font size
     # plt.rcParams.update({'font.size': 16})
     ax = sns.barplot(x='Dataset', y='MCC', data=df, errorbar='sd', hue='Model',
-                palette='tab20', capsize=0.2)
+                palette='tab20', capsize=0.2, width=0.85)
 
     # add horizontal line 0.8 MCC as a cutoff (dashed)
     plt.axhline(y=0.8, color='#545353', linewidth=1.0, linestyle='--')
 
+    fontsize = 12
 
     # Create a custom legend and center it
-    ax.legend(fontsize=10, loc='upper right', bbox_to_anchor=(1.37, 1))
-    # ax.legend(fontsize=16, loc='upper right', bbox_to_anchor=(1.30, 1))
+    ax.legend(fontsize=fontsize, loc='upper right', bbox_to_anchor=(1.45, 1))
 
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
 
+    # Set axis labels font size
+    ax.set_xlabel('Dataset', fontsize=fontsize+3)
+    ax.set_ylabel('MCC', fontsize=fontsize+3)
+    # Set tick labels font size
+    ax.tick_params(axis='both', which='major', labelsize=fontsize+3)
+
+
+
     plt.savefig(f'plots/png/1_error_MCC.png', bbox_inches='tight')
     plt.savefig(f'plots/pdf/1_error_MCC.pdf', bbox_inches='tight')
 
-# plot_mcc_and_create_dataframe_with_the_correlations()
+plot_mcc_and_create_dataframe_with_the_correlations()
 
 def load_dataframe_with_the_correlations_and_plot():  # SRCC
     df = pd.read_csv('results/correlation_results.csv')
@@ -178,7 +186,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
         plt.savefig(f'plots/png/3_correlations_{performance}_meta.png', bbox_inches='tight')
         plt.savefig(f'plots/pdf/3_correlations_{performance}_meta.pdf', bbox_inches='tight')
 
-load_dataframe_with_the_correlations_and_plot_data_impact()
+# load_dataframe_with_the_correlations_and_plot_data_impact()
 
 
 
