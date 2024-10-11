@@ -2,6 +2,10 @@
 
 ### Repository of the work entitled "Understanding the Influence of Data Characteristics on Explainable AI"
 
+
+
+[![DOI](https://zenodo.org/badge/739455853.svg)](https://doi.org/10.5281/zenodo.10968682)
+
 ## Structure
 
 This repository has the following structure:
