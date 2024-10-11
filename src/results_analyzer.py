@@ -103,13 +103,13 @@ def load_dataframe_with_the_correlations_and_plot():  # SRCC
     for performance, data in data_to_plot.items():
         df_to_plot = data['df']
         sns.set_theme(style="whitegrid")
-        plt.figure(figsize=(6, 3.7))
+        plt.figure(figsize=(6, 3.0))
         ax = sns.barplot(x='XAI pair', y=f'XAI SRCC', data=df_to_plot, errorbar='sd', hue='Dataset', legend=True, palette='tab20', capsize=0.2)
         # ax.set_title(correlation_type)
         ax.set_xlabel('XAI Pair')
         ax.set_ylabel(f"SRCC Correlation")
 
-        fontsize = 11
+        fontsize = 14
 
         # Set axis labels font size
         ax.set_xlabel('XAI Pair', fontsize=fontsize)
@@ -117,10 +117,11 @@ def load_dataframe_with_the_correlations_and_plot():  # SRCC
         # Set tick labels font size
         ax.tick_params(axis='both', which='major', labelsize=fontsize)
 
-        ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.5, -0.18), ncol=4)
+        # ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.5, -0.21), ncol=4)
+        ax.legend(fontsize=fontsize, loc='upper right', bbox_to_anchor=(1.38, 1.0))
 
         # set y top limit to 1.2
-        ax.set_ylim([-0.03, 1.0])
+        ax.set_ylim([-0.05, 1.0])
 
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
@@ -128,7 +129,7 @@ def load_dataframe_with_the_correlations_and_plot():  # SRCC
         plt.savefig(f'plots/png/2_correlations_{performance}_xai.png', bbox_inches='tight')
         plt.savefig(f'plots/pdf/2_correlations_{performance}_xai.pdf', bbox_inches='tight')
 
-# load_dataframe_with_the_correlations_and_plot()
+load_dataframe_with_the_correlations_and_plot()
 
 def load_dataframe_with_the_correlations_and_plot_data_impact():
     df_o = pd.read_csv('results/correlation_results.csv')
@@ -149,7 +150,7 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
                 corr_dataframe = corr_dataframe._append({'Input Feature': input_feature, 'SRCC': correlation_spearman_value, 'XAI Pair': xai_pair}, ignore_index=True)
 
         sns.set_theme(style="whitegrid")
-        plt.figure(figsize=(4, 3.6))
+        plt.figure(figsize=(4, 3.0))
 
         correlation_type = 'SRCC'
         legend = True
@@ -180,13 +181,12 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
         # Add legend
         if legend:
             # ax.legend(fontsize=10, loc='upper left', bbox_to_anchor=(1, 1)).set_zorder(100)
-            ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.5, -0.14), ncol=3)
+            ax.legend(fontsize=fontsize, loc='upper center', bbox_to_anchor=(0.4, -0.16), ncol=3)
 
+        plt.savefig(f'plots/png/3_correlations_{performance}_meta.png', bbox_inches='tight', pad_inches=0)
+        plt.savefig(f'plots/pdf/3_correlations_{performance}_meta.pdf', bbox_inches='tight', pad_inches=0)
 
-        plt.savefig(f'plots/png/3_correlations_{performance}_meta.png', bbox_inches='tight')
-        plt.savefig(f'plots/pdf/3_correlations_{performance}_meta.pdf', bbox_inches='tight')
-
-# load_dataframe_with_the_correlations_and_plot_data_impact()
+load_dataframe_with_the_correlations_and_plot_data_impact()
 
 
 
