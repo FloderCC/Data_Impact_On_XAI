@@ -102,7 +102,7 @@ def describe_dataset_using_pymfe(df: DataFrame, class_name: str) -> list:
     y = df[class_name].values
     y = ['label ' + str(val) for val in y]
 
-    mfe = MFE(groups=["concept", "general", "info-theory", "statistical"])
+    mfe = MFE(groups=["general", "info-theory", "statistical"])
     mfe.fit(X, y)
     ft = mfe.extract()
 

@@ -84,7 +84,7 @@ def plot_mcc_and_create_dataframe_with_the_correlations():
     plt.savefig(f'plots/png/1_error_MCC.png', bbox_inches='tight')
     plt.savefig(f'plots/pdf/1_error_MCC.pdf', bbox_inches='tight')
 
-plot_mcc_and_create_dataframe_with_the_correlations()
+# plot_mcc_and_create_dataframe_with_the_correlations()
 
 def load_dataframe_with_the_correlations_and_plot():  # SRCC
     df = pd.read_csv('results/correlation_results.csv')
@@ -129,7 +129,7 @@ def load_dataframe_with_the_correlations_and_plot():  # SRCC
         plt.savefig(f'plots/png/2_correlations_{performance}_xai.png', bbox_inches='tight')
         plt.savefig(f'plots/pdf/2_correlations_{performance}_xai.pdf', bbox_inches='tight')
 
-load_dataframe_with_the_correlations_and_plot()
+# load_dataframe_with_the_correlations_and_plot()
 
 def load_dataframe_with_the_correlations_and_plot_data_impact():
     df_o = pd.read_csv('results/correlation_results.csv')
@@ -185,6 +185,14 @@ def load_dataframe_with_the_correlations_and_plot_data_impact():
 
         plt.savefig(f'plots/png/3_correlations_{performance}_meta.png', bbox_inches='tight', pad_inches=0)
         plt.savefig(f'plots/pdf/3_correlations_{performance}_meta.pdf', bbox_inches='tight', pad_inches=0)
+
+        # # order the dataframe by the SRCC
+        # corr_dataframe = corr_dataframe.sort_values(by=['SRCC'], ascending=False)
+        # # saving the corr_dataframe to csv
+        # corr_dataframe.to_csv(f'results/correlation_{performance}_corr_dataframe.csv', index=False)
+
+        # printing the average of the SRCC
+        print(f"Average SRCC for {performance} models: {corr_dataframe['SRCC'].mean()}")
 
 load_dataframe_with_the_correlations_and_plot_data_impact()
 
